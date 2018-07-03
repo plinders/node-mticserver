@@ -4,11 +4,21 @@
   <head>
     <meta charset="utf-8">
     <title>{{pageTitle}}</title>
+    <script>
+      $(document).ready(function() {
+        $(".js-example-data-array").select2({
+      data: {{data}}
+        });
+    </script>
   </head>
   <body>
     {{> header}}
     <div class="jumbotron">
       <p>This site serves as an interface to services on mticserver</p>
+      <div class="s2-example">
+        <p>
+          <select class="js-example-data-array form-control"></select>
+        </p>
     </div>
     {{> footer}}
   </body>

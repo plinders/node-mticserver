@@ -3,6 +3,8 @@ const PythonShell = require('python-shell')
 const hbs = require('hbs');
 const fs = require('fs');
 
+const helper = require('./helper.js')
+
 const port = process.env.PORT || 3000;
 
 var app = express();
@@ -22,8 +24,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about.hbs', {
-    pageTitle: 'About mticserver',
+  helper.getModelArray("C:\\", (arr) => {
+      console.log(arr);
+      res.render('about.hbs', {
+        pageTitle: 'About mticserver',
+        data: arr
+      });
+    });
+    });
+
+
+app.get('/deepcell', (req, res) => {
+  res.render('deepcell.hbs', {
+    pageTitle: 'DeepCell',
 
   })
 });
